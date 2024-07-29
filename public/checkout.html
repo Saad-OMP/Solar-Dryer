@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to OpenMindProjectsFirst</title>
+    <link rel="stylesheet" href="css/checkout.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="donation-container">
+        <h1>Donate to OpenMindProjects</h1>
+
+        <form id="donation-form">
+            <label for="amount">Enter Donation Amount:</label>
+            <div class="donation-amount">
+                <span>€</span>
+                <input type="number" id="amount" name="amount" min="1" step="any" required>
+            </div>
+
+            <div class="donation-type">
+                <label>
+                    <input type="radio" name="donation" checked>
+                    single donation
+                </label>
+                <label>
+                    <input type="radio" name="donation">
+                    regular donation
+                </label>
+            </div>
+
+            <button type="submit" class="donate-button">Donate Now <span>❤️</span></button>
+        </form>
+
+        <div id="checkout">
+            <!-- Stripe Checkout will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('donation-form');
+
+        // **IMPORTANT:** Replace with your actual Stripe publishable key!
+        const stripe = Stripe('pk_test_51Nf56kLsny6MkgTCQNl5AguL3AuO2KBiI8x7dsDN7ybBfHdDDybMYe7DNO3CN4ecL8gOjjoAeisH90RghDTHe7hn00flXyBDa4'); 
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const amount = document.getElementById('amount').value;
+            const amountInCents = Math.round(amount * 100); // Convert to cents
+
+            try {
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ amount: amountInCents })
+                });
+
+                const data = await response.json();
+
+                // Redirect to Stripe Checkout
+                const { error } = await stripe.redirectToCheckout({
+                    sessionId: data.id // Use 'id' from the response
+                }); 
+
+                if (error) {
+                    console.error('Error redirecting to Stripe Checkout:', error);
+                    // Handle the error more gracefully (e.g., display a message to the user)
+                }
+
+            } catch (error) {
+                console.error('Error creating Checkout Session:', error);
+                // Handle the error more gracefully
+            }
+        });
+    </script>
+</body>
+</html>

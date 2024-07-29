@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Dryer</title>
+
+  <!-- Share Popup -->
+  <link rel="stylesheet" href="public/css/share-popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+
+  <!-- For the timeline design -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- <link rel="stylesheet" href="css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/master.css" />
+  <link rel="stylesheet" href="css/timeline_design.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- facebook comments -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"
+    nonce="mwnY2C51"></script>
+
+  <!-- Start Settings Box -->
+  <div class="settings-box">
+    <div class="toggle-settings">
+      <i class="fa fa-gear"></i>
+    </div>
+    <div class="settings-container">
+      <div class="option-box">
+        <h4>Colors</h4>
+        <ul class="colors-list">
+          <li class="active" data-color="#FF9800"></li>
+          <li data-color="#E91E63"></li>
+          <li data-color="#009688"></li>
+          <li data-color="#03A9F4"></li>
+          <li data-color="#4CAF50"></li>
+        </ul>
+      </div>
+      <div class="option-box">
+        <h4>Random Backgrounds</h4>
+        <div class="random-backgrounds">
+          <span class="yes active" data-background="yes">Yes</span>
+          <span class="no" data-background="no">No</span>
+        </div>
+      </div>
+      <div class="option-box">
+        <h4>show Bullets</h4>
+        <div class="bullets-option">
+          <span class="yes active" data-display="show">Yes</span>
+          <span class="no" data-display="hide">No</span>
+        </div>
+      </div>
+      <button class="reset-options">Reset Options</button>
+    </div>
+  </div>
+  <!-- End Settings Box -->
+
+  <!-- Start Nav Bullets -->
+  <div class="nav-bullets">
+    <div class="bullet" data-section=".story">
+      <div class="tooltip">About Us</div>
+    </div>
+    <div class="bullet" data-section=".testimonial-container">
+      <div class="tooltip">About Us</div>
+    </div>
+    <div class="bullet" data-section=".fb-comments-container">
+      <div class="tooltip">About Us</div>
+    </div>
+    <div class="bullet" data-section=".gallery">
+      <div class="tooltip">Our Gallery</div>
+    </div>
+    <div class="bullet" data-section=".main-timeline">
+      <div class="tooltip">Timeline</div>
+    </div>
+    <div class="bullet" data-section=".about-us">
+      <div class="tooltip">About Us</div>
+    </div>
+    <div class="bullet" data-section=".features">
+      <div class="tooltip">Features</div>
+    </div>
+  </div>
+  <!-- End Nav Bullets -->
+
+  <!-- Start Popup -->
+  <div class="popup-overlay" id="sharePopupOverlay"></div>
+  <div class="popup" id="sharePopup">
+    <header>
+      <span>Share</span>
+      <div class="close">✖</div>
+    </header>
+    <div class="content">
+      <p>Share this link with your friends</p>
+      <div class="field">
+        <i class="url-icon uil uil-link"></i>
+        <input type="text" readonly value="http://127.0.0.1:5502" />
+        <button>Copy</button>
+      </div>
+      <div class="icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- End Popup -->
+
+  <!-- Start Landing Page -->
+  <div class="landing-page">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="header-area">
+        <div class="logo">
+          <img src="imgs/OMP_logo.svg" alt="About Us" />
+        </div>
+        <div class="links-container">
+          <ul class="links">
+            <li><a href="#" data-section=".story">Story</a></li>
+            <li><a href="#" data-section=".gallery">Gallery</a></li>
+            <li><a href="#" data-section=".main-timeline">Timeline</a></li>
+            <li><a href="#" data-section=".about-us">About</a></li>
+            <li><a href="#" data-section=".features">Supporters</a></li>
+          </ul>
+          <button class="toggle-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="introduction-text">
+      <h1><span>Dryer</span> Project</h1>
+      <div class="hero-subhead">
+        <p>Reducing Poverty, One Dried Fruit at a Time</p>
+      </div>
+      <div class="hero-text">
+        <p>Pluem is empowering farmers in Thailand to overcome poverty with sustainable solar drying technology. Support
+          their project with OpenMindProjectsFirst and help transform lives, one dried fruit at a time. Donate now!</p>
+      </div>
+      <div class="button-container">
+        <button class="button donate">Donate</button>
+        <button class="button more-info" data-section=".story">More Info</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- End Landing Page -->
+
+  <!-- Start Main Content Section -->
+  <!-- The main content contains the content (left) and the floating widget (right) -->
+
+  <main class="main-content">
+
+    <div class="content-area">
+
+      <!-- Start Story -->
+      <div class="container">
+        <div class="story">
+          <div class="story-box">
+            <h2>Pluem's Story</h2>
+            <p>
+              In a quiet village nestled amidst green fields, lives a young man
+              named Pluem. Driven by a desire to uplift his community, he
+              constantly seeks ways to make life better through innovation and
+              hard work.
+            </p>
+            <p>
+              Pluem's latest endeavor is an inspiring project to introduce solar
+              dryers to his village. Recognizing the potential of this technology,
+              he envisions it as a source of much-needed income and a catalyst
+              for a brighter future for everyone.
+            </p>
+            <p>
+              By harnessing the abundant power of the sun, Pluem believes this
+              initiative can transform lives. With your generous support, we
+              can help him turn this dream into reality and bring lasting,
+              sustainable change to his village and beyond.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End Story -->
+
+      <!-- Start Quotes -->
+      <div class="container">
+        <div class="testimonial-container">
+          <div class="testimonial-wrapper">
+
+            <div class="testimonial active">
+              <p>"This project is about more than just drying food; it's about drying
+                hope for a brighter future. Our children are learning valuable skills
+                that will benefit our village for years to come."</p>
+              <div class="testimonial-author">
+                <img src="imgs/person-01.jfif" alt="Person 1">
+                <div>
+                  <h3>FName LName</h3>
+                  <span>Village Elder</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial">
+              <p>"This initiative is focused on more than just dehydrating food; it's
+                about cultivating optimism for a brighter tomorrow. Our kids are
+                acquiring essential skills that will benefit our community for
+                generations to come."</p>
+              <div class="testimonial-author">
+                <img src="imgs/person-03.jfif" alt="Person 2">
+                <div>
+                  <h3>Name 2 Family2</h3>
+                  <span>NGO Manager</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial">
+              <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+                voluptas inventore recusandae, esse iusto delectus enim tempore
+                expedita accusamus aut magni cumque impedit? Repudiandae, id sed
+                explicabo iure voluptatem consequatur."</p>
+              <div class="testimonial-author">
+                <img src="imgs/person-02.png" alt="Person 2">
+                <div>
+                  <h3>Name3 Family3</h3>
+                  <span>Important Position</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="nav-buttons">
+            <button class="prev">❮</button>
+            <span class="indicator">1 / 2</span>
+            <button class="next">❯</button>
+          </div>
+        </div>
+      </div>
+      <!-- End Quotes -->
+
+      <!-- Start Comments -->
+      <div class="fb-comments-container">
+        <div class="fb-comments" data-href="http://127.0.0.1:5502/" data-width="800" data-numposts="5"></div>
+      </div>
+      <!-- End Comments -->
+
+      <!-- Start Gallery -->
+      <div class="gallery">
+        <div class="container">
+          <h2>Our Gallery</h2>
+          <div class="images-box">
+            <img src="imgs/01.jpg" alt="Gallery Image 1" />
+            <img src="imgs/02.jpg" alt="Gallery Image 2" />
+            <img src="imgs/03.jpg" alt="Gallery Image 3" />
+            <img src="imgs/04.jpg" alt="Gallery Image 4" />
+            <img src="imgs/05.jpg" alt="Gallery Image 5" />
+            <img src="imgs/05.jpg" alt="Gallery Image 6" />
+            <img src="imgs/05.jpg" alt="Gallery Image 7" />
+            <img src="imgs/05.jpg" alt="Gallery Image 8" />
+            <img src="imgs/05.jpg" alt="Gallery Image 9" />
+            <img src="imgs/05.jpg" alt="Gallery Image 10" />
+          </div>
+        </div>
+      </div>
+      <!-- End Gallery -->
+
+      <!-- Start Timeline -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="main-timeline">
+              <div class="timeline">
+                <a href="#" class="timeline-content">
+                  <span class="timeline-year">Phase 1</span>
+                  <div class="timeline-icon">
+                    <i class="fa fa-rocket"></i>
+                  </div>
+                  <div class="content">
+                    <h3 class="title">Project Launch</h3>
+                    <p class="description">
+                      We're thrilled to announce the launch of [Student's Name]'s Solar Dryer Project
+                      in Thailand. Your support will help bring this innovative technology to farmers
+                      in need! Lorem, ipsum dolor.
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="timeline">
+                <a href="#" class="timeline-content">
+                  <span class="timeline-year">Phase 2</span>
+                  <div class="timeline-icon">
+                    <i class="fa fa-users"></i>
+                  </div>
+                  <div class="content">
+                    <h3 class="title">Construction Begins!</h3>
+                    <p class="description">
+                      Thanks to your generous donations, we've purchased the materials and
+                      construction has begun on the first solar dryer!
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+
+              <div class="timeline">
+                <a href="#" class="timeline-content">
+                  <span class="timeline-year">Phase 3</span>
+                  <div class="timeline-icon">
+                    <i class="fa fa-cog"></i>
+                  </div>
+                  <div class="content">
+                    <h3 class="title">Training & Implementation</h3>
+                    <p class="description">
+                      The solar dryer is built, and now we're focused on training local farmers
+                      on how to use and maintain it for optimal results. Lorem ipsum dolor sit amet
+                      consectetur adipisicing.
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="timeline">
+                <a href="#" class="timeline-content">
+                  <span class="timeline-year">Phase 4</span>
+                  <div class="timeline-icon">
+                    <i class="fa fa-heart"></i>
+                  </div>
+                  <div class="content">
+                    <h3 class="title">First Harvest & Impact</h3>
+                    <p class="description">
+                      The first batch of solar-dried fruit is ready! See the positive impact of
+                      your donations on the lives of locals.
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+
+              <div class="timeline">
+                <a href="#" class="timeline-content">
+                  <span class="timeline-year">Phase 5</span>
+                  <div class="timeline-icon">
+                    <i class="fa fa-web"></i>
+                  </div>
+                  <div class="content">
+                    <h3 class="title">Expanding Our Reach</h3>
+                    <p class="description">
+                      Thanks to your incredible generosity, we've surpassed our fundraising goal!
+                      We're now working to build additional solar dryers and empower even more
+                      farmers in neighboring communities.
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Timeline -->
+
+      <!-- Start About Us -->
+      <div class="container">
+        <div class="about-us">
+          <div class="info-box">
+            <h2>About Us</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eum
+              quae aspernatur nostrum itaque inventore quod esse praesentium est
+              dolor! Dolore explicabo molestias neque animi distinctio ab placeat
+              magni labore.
+            </p>
+          </div>
+          <div class="image-box">
+            <img src="imgs/OMP_logo.svg" alt="About Us" />
+          </div>
+        </div>
+      </div>
+      <!-- End About Us -->
+
+    </div>
+    <!-- End Content Area -->
+
+    <!-- Start Floating Widget -->
+    <aside class="floating-widget">
+      <div class="widget-content">
+        <h2>Help fund this project</h2>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 46%;"></div>
+          </div>
+          <div class="progress-info">
+            <div class="days-left">
+              <span class="days">17 days</span>
+              <span class="label">REMAINING</span>
+            </div>
+            <div class="funding-info">
+              <span class="amount">$1,180 to go</span>
+              <span class="funded">46% FUNDED</span>
+            </div>
+          </div>
+        </div>
+        <div class="button-container">
+          <button class="button donate">Donate</button>
+          <button class="button share">Share</button>
+        </div>
+        <div class="widget-links">
+          <a href="#" class="widget-link" data-section=".story"><i class="icon"></i>Student Story</a>
+          <a href="#" class="widget-link" data-section=".main-timeline"><i class="icon"></i>Project Details</a>
+        </div>
+      </div>
+    </aside>
+    <!-- End Floating Widget -->
+
+    <!-- Share Popup -->
+
+  </main>
+  <!-- End Main Content Section -->
+
+  <!-- Start Supporters -->
+  <div class="features">
+    <div class="overlay"></div>
+    <h2>Our Supporters</h2>
+    <div class="container">
+      <div class="feat-box">
+        <img src="imgs/icon-01.svg" alt="" loading="lazy">
+        <h4>Techsoup for Nonprofits</h4>
+        <p>Comprehensive e-commerce platform, empowering businesses to sell online seamlessly.</p>
+      </div>
+      <div class="feat-box">
+        <img src="imgs/google_for_nonprofits.png" alt="" loading="lazy">
+        <h4>Google for Nonprofits</h4>
+        <p>A suite of integrated marketing tools, streamlining your marketing efforts and boosting ROI.</p>
+      </div>
+      <div class="feat-box">
+        <img src="imgs/MicrosoftAzure.png" alt="" loading="lazy">
+        <h4>Microsoft Azure</h4>
+        <p>Financial management solutions, providing real-time insights and empowering data-driven decisions.</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- End Supporters -->
+
+  <!-- Start Footer -->
+  <div class="footer">
+    <p>Trusted by:</p>
+    <div class="scroller" data-direction="left" data-speed="slow">
+      <div class="scroller__inner">
+        <img src="imgs\logo_trusted_by\bangkok_post.png" alt="" />
+        <img src="imgs\logo_trusted_by\cisco.png" alt="" />
+        <img src="imgs\logo_trusted_by\cnn.png" alt="" />
+        <img src="imgs\logo_trusted_by\columbia_business_school.png" alt="" />
+        <img src="imgs\logo_trusted_by\cornell_university.png" alt="" />
+        <img src="imgs\logo_trusted_by\digital_lift.jpg" alt="" />
+        <img src="imgs\logo_trusted_by\google.png" alt="" />
+        <img src="imgs\logo_trusted_by\HBS.png" alt="" />
+        <img src="imgs\logo_trusted_by\ifrc.png" alt="" />
+        <img src="imgs\logo_trusted_by\LiU.png" alt="" />
+        <img src="imgs\logo_trusted_by\lonely_planet.png" alt="" />
+        <img src="imgs\logo_trusted_by\microsoft.png" alt="" />
+        <img src="imgs\logo_trusted_by\riot_games.jpg" alt="" />
+        <img src="imgs\logo_trusted_by\rotary_club.png" alt="" />
+        <img src="imgs\logo_trusted_by\techsoup.svg" alt="" />
+        <img src="imgs\logo_trusted_by\top-rated.png" alt="" />
+        <img src="imgs\logo_trusted_by\UNESCO.png" alt="" />
+        <img src="imgs\logo_trusted_by\vetted-globalgiving-2017.png" alt="" />
+      </div>
+    </div>
+  </div>
+  <!-- End Footer -->
+
+  <script src="js/master.js"></script>
+
+
+</body>
+
+</html>
