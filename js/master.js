@@ -555,3 +555,50 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Return home link not found");
   }
 });
+
+
+// Define the total amount needed
+const totalAmountNeeded = 1370;
+
+// Function to format the number with commas
+function formatNumber(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Function to fetch the total donated amount from the server
+async function fetchDonatedAmount() {
+  try {
+    // Fetch data from the server
+    const response = await fetch('http://localhost:4242/api/donations');
+    
+    // Check if response is OK
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    // Parse the JSON data
+    const data = await response.json();
+    const donatedAmount = data.totalAmount;
+    
+    // Debugging log
+    console.log("Fetched donated amount:", donatedAmount);
+
+    // Calculate the remaining amount needed
+    const remainingAmount = totalAmountNeeded - donatedAmount;
+
+    // Ensure remainingAmount is non-negative
+    const displayAmount = remainingAmount > 0 ? remainingAmount : 0;
+
+    // Debugging log
+    console.log("Remaining amount:", displayAmount);
+
+    // Update the content of the <span> element
+    document.getElementById('funding-amount').innerText = `$${formatNumber(displayAmount)} to go`;
+  } catch (error) {
+    // Log any errors
+    console.error('Error fetching donated amount:', error);
+  }
+}
+
+// Fetch the donated amount when the page loads
+window.onload = fetchDonatedAmount;

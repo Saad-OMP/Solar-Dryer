@@ -232,7 +232,7 @@ body {
   width: 20%;
   position: sticky; /* Makes the widget "sticky" */
   top: 5vh; /* Stick to the top of the viewport */
-  height: 40.1vh; /* Make the widget fill the viewport height */
+  height: 390px; /* Make the widget fill the viewport height */
   margin: 5vh;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -351,13 +351,6 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-
-.floating-widget .widget-link .icon {
-  width: 16px;
-  height: 16px;
-  background: url('icon.png') no-repeat center center;
-  background-size: cover;
 }
 
 .floating-widget .widget-link:hover {
