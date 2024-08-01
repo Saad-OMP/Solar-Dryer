@@ -124,25 +124,26 @@
 
   <!-- Start Landing Page -->
   <div class="landing-page">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="header-area">
-        <div class="logo">
-          <img src="imgs/OMP_logo.svg" alt="About Us" />
-        </div>
-        <div class="links-container">
-          <ul class="links">
-            <li><a href="#" data-section=".story">Story</a></li>
-            <li><a href="#" data-section=".gallery">Gallery</a></li>
-            <li><a href="#" data-section=".main-timeline">Timeline</a></li>
-            <li><a href="#" data-section=".about-us">About</a></li>
-            <li><a href="#" data-section=".features">Supporters</a></li>
-          </ul>
-          <button class="toggle-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+    <div class="overlay">
+      <div class="container">
+        <div class="header-area">
+          <div class="logo">
+            <img src="imgs/OMP_logo.svg" alt="About Us" />
+          </div>
+          <div class="links-container">
+            <ul class="links">
+              <li><a href="#" data-section=".story">Story</a></li>
+              <li><a href="#" data-section=".gallery">Gallery</a></li>
+              <li><a href="#" data-section=".main-timeline">Timeline</a></li>
+              <li><a href="#" data-section=".about-us">About</a></li>
+              <li><a href="#" data-section=".features">Supporters</a></li>
+            </ul>
+            <button class="toggle-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -258,7 +259,7 @@
 
       <!-- Start Comments -->
       <div class="fb-comments-container">
-        <div class="fb-comments" data-href="http://127.0.0.1:5502/" data-width="800" data-numposts="5"></div>
+        <div class="fb-comments" data-href="http://127.0.0.1:5502/" data-width="100%" data-numposts="5"></div>
       </div>
       <!-- End Comments -->
 
@@ -404,7 +405,7 @@
         <h2>Help fund this project</h2>
         <div class="progress-container">
           <div class="progress-bar">
-            <div class="progress" style="width: 46%;"></div>
+            <div class="progress" id="funding-progress" style="width: 0%;"></div>
           </div>
           <div class="progress-info">
             <div class="days-left">
@@ -413,7 +414,7 @@
             </div>
             <div class="funding-info">
               <span class="amount" id="funding-amount">$0 to go</span>
-              <span class="funded">46% FUNDED</span>
+              <span class="funded" id="funded-percentage">0% FUNDED</span>
             </div>
           </div>
         </div>
@@ -462,7 +463,7 @@
   <!-- Start Footer -->
   <div class="footer">
     <p>Trusted by:</p>
-    <div class="scroller" data-direction="left" data-speed="slow">
+    <div class="scroller" data-direction="left" data-speed="fast">
       <div class="scroller__inner">
         <img src="imgs\logo_trusted_by\bangkok_post.png" alt="" />
         <img src="imgs\logo_trusted_by\cisco.png" alt="" />

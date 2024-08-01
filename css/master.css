@@ -221,24 +221,59 @@ body {
 /* Main Content Area */
 .main-content {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 .content-area {
-  width: 66.66%; /* Two-thirds of the screen */
-  /* Add padding or margins as needed */
+  width: 100%;
+  margin-bottom: 20px; /* Add spacing between elements */
+}
+
+@media (max-width: 991px) {
+  .content-area {
+    order: 2;
+  }
 }
 
 /* Start Floating Widget */
 .floating-widget {
-  width: 20%;
-  position: sticky; /* Makes the widget "sticky" */
-  top: 5vh; /* Stick to the top of the viewport */
-  height: 390px; /* Make the widget fill the viewport height */
-  margin: 5vh;
+  width: 90%;
+  position: relative;
+  margin: 20px auto;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   overflow: hidden;
   padding: 20px;
+}
+
+@media (min-width: 992px) {
+  .content-area {
+    width: 66%;
+  }
+
+  .floating-widget {
+    width: 24%;
+    position: sticky;
+    top: 5vh;
+    margin: 5vh;
+    height: fit-content;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-area {
+    width: 66.66%;
+  }
+
+  .floating-widget {
+    width: 20%;
+    position: sticky;
+    top: 5vh;
+    margin: 5vh;
+    height: fit-content;
+    padding: 15px;
+  }
 }
 
 .floating-widget .widget-content {
@@ -281,7 +316,8 @@ body {
   align-items: center;
 }
 
-.floating-widget .days-left, .funding-info {
+.floating-widget .days-left,
+.funding-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -292,7 +328,8 @@ body {
   font-weight: bold;
 }
 
-.floating-widget .label, .funded {
+.floating-widget .label,
+.funded {
   font-size: 10px;
   color: #888;
 }
@@ -378,7 +415,10 @@ body {
 .landing-page .container {
   position: relative;
   z-index: 1000;
+  height: 100%;
+  padding: 0;
 }
+
 
 .header-area {
   position: relative;
@@ -386,15 +426,15 @@ body {
   color: #fff;
   display: flex;
   padding: 10px;
-  width: 100%;
+  height: 100%;
 }
 
 .header-area .logo {
-  width: 300px;
-  font-weight: bold;
+  width: fit-content;
 }
-.header-area .logo img {
-  width: 85%;
+.overlay .header-area .logo img {
+  height: 100%;
+  width: 202px;
 }
 .header-area .links-container {
   width: 100%;
@@ -433,7 +473,6 @@ body {
   border: none;
   width: 40px;
   cursor: pointer;
-  margin-top: 15px;
   display: none;
   position: relative;
 }
@@ -465,6 +504,18 @@ body {
   text-align: start;
   width: 30%;
 }
+@media (max-width: 992px) {
+  .introduction-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-align: start;
+    width: 80%;
+  }
+}
 .introduction-text h1 {
   font-size: 72px;
   font-weight: bold;
@@ -472,7 +523,7 @@ body {
 }
 @media (max-width: 575px) {
   .introduction-text h1 {
-    font-size: 26px;
+    font-size: 56px;
   }
 }
 .introduction-text h1 span {
@@ -481,7 +532,7 @@ body {
 .introduction-text .hero-text {
   padding-top: 12%;
 }
-.introduction-text .hero-subhead p{
+.introduction-text .hero-subhead p {
   font-size: 24px;
   font-weight: bold;
   line-height: 1.6;
@@ -655,6 +706,26 @@ body {
   margin-right: 10px;
 }
 
+@media (max-width: 575px) {
+  .container {
+    padding-right: 10px;
+    padding-right: 10px;
+  }
+  .testimonial {
+    padding: 0;
+  }
+  .testimonial p {
+    min-height: 225px;
+    font-size: 1.25em;
+  }
+  .testimonial-author {
+    justify-content: center;
+  }
+  .h3,
+  h3 {
+    font-size: 1.2em;
+  }
+}
 .nav-buttons {
   display: flex;
   justify-content: center;
@@ -679,12 +750,35 @@ body {
 .fb-comments-container {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
+
 .fb-comments {
-  width: 900px;
+  width: 70%;
+  max-width: 800px; /* Ensures it doesn't exceed 800px */
   margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .fb-comments {
+    margin-right: 10%; /* Slightly wider for medium screens */
+    margin-left: 10%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fb-comments {
+    margin-right: 5%; /* Even wider for smaller screens */
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 575px) {
+  .fb-comments {
+    margin-right: 5%; /* Full width on very small screens */
+    margin-left: 5%;
+  }
 }
 /* End Comments */
 
@@ -807,6 +901,19 @@ body {
   padding: 0 10px; /* Add padding to ensure gap space on edges */
 }
 
+@media (max-width: 768px) {
+  .features .container {
+    max-width: 90%;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .features .container {
+    flex-direction: column;
+  }
+}
+
 .features .feat-box {
   flex: 1 1 calc(33.33% - 50px); /* Adjust calculation to account for gaps */
   box-sizing: border-box;
@@ -846,7 +953,7 @@ body {
   font-size: 22px;
   margin: 15px 0 40px;
   position: relative;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .features .feat-box h4::before {
   content: "";
@@ -862,7 +969,7 @@ body {
   width: 80%;
   margin: 0 auto;
   line-height: 1.7;
-  color: #DFDFDF;
+  color: #dfdfdf;
 }
 /* End Features */
 
@@ -999,8 +1106,18 @@ body {
 .about-us .image-box img {
   width: 350px;
 }
-/* End About Us */
+@media (max-width: 575px) {
+  .about-us .image-box img {
+    width: 80%;
+  }
+}
 
+@media (max-width: 768px) {
+  .about-us .image-box img {
+    margin-top: 15px;
+  }
+}
+/* End About Us */
 
 /* Start Footer */
 .footer {
@@ -1083,28 +1200,5 @@ body {
 /* End Footer */
 
 /* Start Grid System */
-@media (min-width: 576px) {
-  /* Small Devices => Landscape Phones */
-  .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  /* Medium Devices => Tablete */
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  /* Desktops */
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  /* Large Screens */
-  .container {
-    max-width: 90%;
-  }
-}
+
 /* End Grid System */

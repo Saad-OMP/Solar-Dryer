@@ -238,7 +238,9 @@ const allLinks = document.querySelectorAll(".links a");
 const allWidgetLinks = document.querySelectorAll(".widget-links a");
 
 // Selecct Buttons
-const allButtons = document.querySelectorAll(".button-container button.more-info");
+const allButtons = document.querySelectorAll(
+  ".button-container button.more-info"
+);
 
 function scrollToElement(elements) {
   elements.forEach((ele) => {
@@ -256,7 +258,6 @@ scrollToElement(allBullets);
 scrollToElement(allLinks);
 scrollToElement(allWidgetLinks);
 scrollToElement(allButtons);
-
 
 // Handle Active State
 function handleActive(ev) {
@@ -556,7 +557,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
 // Define the total amount needed
 const totalAmountNeeded = 1370;
 
@@ -569,17 +569,17 @@ function formatNumber(num) {
 async function fetchDonatedAmount() {
   try {
     // Fetch data from the server
-    const response = await fetch('http://localhost:4242/api/donations');
-    
+    const response = await fetch("http://localhost:4242/api/donations");
+
     // Check if response is OK
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
-    
+
     // Parse the JSON data
     const data = await response.json();
     const donatedAmount = data.totalAmount;
-    
+
     // Debugging log
     console.log("Fetched donated amount:", donatedAmount);
 
@@ -589,14 +589,28 @@ async function fetchDonatedAmount() {
     // Ensure remainingAmount is non-negative
     const displayAmount = remainingAmount > 0 ? remainingAmount : 0;
 
+    const fundedPercentage = Math.min(
+      (donatedAmount / totalAmountNeeded) * 100,
+      100
+    ).toFixed(2);
+
     // Debugging log
     console.log("Remaining amount:", displayAmount);
+    console.log("Funded percentage:", fundedPercentage);
 
     // Update the content of the <span> element
-    document.getElementById('funding-amount').innerText = `$${formatNumber(displayAmount)} to go`;
+    document.getElementById("funding-amount").innerText = `$${formatNumber(
+      displayAmount
+    )} to go`;
+    document.getElementById(
+      "funded-percentage"
+    ).innerText = `${fundedPercentage}% FUNDED`;
+    document.getElementById(
+      "funding-progress"
+    ).style.width = `${fundedPercentage}%`;
   } catch (error) {
     // Log any errors
-    console.error('Error fetching donated amount:', error);
+    console.error("Error fetching donated amount:", error);
   }
 }
 
