@@ -2,8 +2,6 @@
 let mainColors = localStorage.getItem("color_option");
 
 if (mainColors !== null) {
-  // console.log('Local storage is not empty, you can set it on root now');
-  // console.log(localStorage.getItem("color_option"));
 
   document.documentElement.style.setProperty("--main-color", mainColors);
 
@@ -98,30 +96,30 @@ randomBackEl.forEach((span) => {
   });
 });
 
-// Select Landing Page Element
-let landingPage = document.querySelector(".landing-page");
+// // Select Landing Page Element
+// let landingPage = document.querySelector(".landing-page");
 
-//Get Array of Images
-let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
+// //Get Array of Images
+// let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
 
-// Change Background Image Url
-landingPage.style.backgroundImage = 'url("imgs/02.jpg")';
+// // Change Background Image Url
+// landingPage.style.backgroundImage = 'url("imgs/02.jpg")';
 
-// Funtion to Randomize Images
-function randomizeImgs() {
-  if (backgroundOption === true) {
-    backgroundInterval = setInterval(() => {
-      // Get Random Number (0 to 4)
-      let randomNumber = Math.floor(Math.random() * imgsArray.length);
+// // Funtion to Randomize Images
+// function randomizeImgs() {
+//   if (backgroundOption === true) {
+//     backgroundInterval = setInterval(() => {
+//       // Get Random Number (0 to 4)
+//       let randomNumber = Math.floor(Math.random() * imgsArray.length);
 
-      // Change Background Image Url
-      landingPage.style.backgroundImage =
-        'url("imgs/' + imgsArray[randomNumber] + '")';
-    }, 10000);
-  }
-}
+//       // Change Background Image Url
+//       landingPage.style.backgroundImage =
+//         'url("imgs/' + imgsArray[randomNumber] + '")';
+//     }, 10000);
+//   }
+// }
 
-randomizeImgs();
+// randomizeImgs();
 
 // Select Skills Selector
 let ourSkills = document.querySelector(".skills");
@@ -270,54 +268,52 @@ function handleActive(ev) {
   ev.target.classList.add("active");
 }
 
-let bulletsSpan = document.querySelectorAll(".bullets-option span");
+// let bulletsSpan = document.querySelectorAll(".bullets-option span");
+// let bulletsContainer = document.querySelector(".nav-bullets");
+// let bulletsLocalItem = localStorage.getItem("bullets_option");
 
-let bulletsContainer = document.querySelector(".nav-bullets");
+// if (bulletsLocalItem !== null) {
+//   bulletsSpan.forEach((span) => {
+//     span.classList.remove("active");
+//   });
 
-let bulletsLocalItem = localStorage.getItem("bullets_option");
+//   if (bulletsLocalItem === "block") {
+//     bulletsContainer.style.display = "block";
 
-if (bulletsLocalItem !== null) {
-  bulletsSpan.forEach((span) => {
-    span.classList.remove("active");
-  });
+//     document.querySelector(".bullets-option .yes").classList.add("active");
+//   } else {
+//     bulletsContainer.style.display = "none";
 
-  if (bulletsLocalItem === "block") {
-    bulletsContainer.style.display = "block";
+//     document.querySelector(".bullets-option .no").classList.add("active");
+//   }
+// }
 
-    document.querySelector(".bullets-option .yes").classList.add("active");
-  } else {
-    bulletsContainer.style.display = "none";
+// bulletsSpan.forEach((span) => {
+//   span.addEventListener("click", (e) => {
+//     if (span.dataset.display === "show") {
+//       bulletsContainer.style.display = "block";
 
-    document.querySelector(".bullets-option .no").classList.add("active");
-  }
-}
+//       localStorage.setItem("bullets_option", "block");
+//     } else {
+//       bulletsContainer.style.display = "none";
 
-bulletsSpan.forEach((span) => {
-  span.addEventListener("click", (e) => {
-    if (span.dataset.display === "show") {
-      bulletsContainer.style.display = "block";
+//       localStorage.setItem("bullets_option", "none");
+//     }
 
-      localStorage.setItem("bullets_option", "block");
-    } else {
-      bulletsContainer.style.display = "none";
+//     handleActive(e);
+//   });
+// });
 
-      localStorage.setItem("bullets_option", "none");
-    }
+// // Reset Button
+// document.querySelector(".reset-options").onclick = function () {
+//   // localStorage.clear();
+//   localStorage.removeItem("color_option");
+//   localStorage.removeItem("background_option");
+//   localStorage.removeItem("bullets_option");
 
-    handleActive(e);
-  });
-});
-
-// Reset Button
-document.querySelector(".reset-options").onclick = function () {
-  // localStorage.clear();
-  localStorage.removeItem("color_option");
-  localStorage.removeItem("background_option");
-  localStorage.removeItem("bullets_option");
-
-  // Reload Window
-  window.location.reload();
-};
+//   // Reload Window
+//   window.location.reload();
+// };
 
 // Toggle Menu
 let toggleBtn = document.querySelector(".toggle-menu");
@@ -352,32 +348,6 @@ document.addEventListener("click", (e) => {
 theLinks.onclick = function (e) {
   e.stopPropagation();
 };
-
-// // Send Email
-// (function () {
-//   emailjs.init("E6kb0V1mzinyL9gw5"); // Replace with your public key
-// })();
-
-// function sendEmail() {
-//   var templateParams = {
-//     from_name: document.getElementById("name").value,
-//     from_email: document.getElementById("email").value,
-//     phone: document.getElementById("phone").value,
-//     subject: document.getElementById("subject").value,
-//     message: document.getElementById("message").value,
-//   };
-
-//   emailjs.send("service_1dg6q4h", "template_jfmtj0q", templateParams).then(
-//     function (response) {
-//       alert("Message sent successfully!");
-//       console.log("SUCCESS!", response.status, response.text);
-//     },
-//     function (error) {
-//       alert("Message not sent. Please try again later.");
-//       console.log("FAILED...", error);
-//     }
-//   );
-// }
 
 // Testimonials
 const testimonials = document.querySelectorAll(".testimonial");
@@ -558,7 +528,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Define the total amount needed
-const totalAmountNeeded = 1370;
+const totalAmountNeeded = 15000;
 
 // Function to format the number with commas
 function formatNumber(num) {
